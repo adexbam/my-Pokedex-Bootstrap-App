@@ -19,8 +19,14 @@ var $pokemonRepository = (function () {     //IIFE starts here
         var $modalTitle = $('#exampleModalLabel');
         var $modalId = $('#modal_id'); 
         $modalTitle.text($modalId.text()); 
-     
 
+        //add the modal image
+        var $modalBody = $('.modal-body');
+        var $imageElement = $('<img>'); // creating img in modal content
+        $imageElement.addClass('modal-img');
+        $modalBody.append($imageElement);
+        $imageElement.attr("src", 'item.imageUrl');
+     
         //add the necessary classes
         $newElement.addClass('list-group');
         $newElementButton.addClass('list-group-item list-group-item-action');
@@ -75,7 +81,7 @@ var $pokemonRepository = (function () {     //IIFE starts here
         getAll: getAll,
         addListItem: addListItem,
         loadList: loadList,
-        loadDetails: loadDetails,
+        loadDetails: loadDetails
         };
   
   })();  //IIFE Ends here
