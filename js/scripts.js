@@ -14,12 +14,13 @@ var $pokemonRepository = (function () {     //IIFE starts here
         var $newElementButton = $('<button></button>');
         var $newContent = $newElement.text('');
         var $newContentTwo = $newElementButton.text(pokemon.name);
+       
+       //add the modal body and title
         var $modalTitle = $('#exampleModalLabel');
         $modalTitle = $newElementButton.text(pokemon.name); 
         var $modalBody = $('#modal-img');
    
-
-        //add the necessary classes
+        //add the necessary class
         $newElement.addClass('list-group');
         $newElementButton.addClass('list-group-item list-group-item-action');
         $newElementButton.attr('type', 'button');
