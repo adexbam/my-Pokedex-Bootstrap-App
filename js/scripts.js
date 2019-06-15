@@ -15,14 +15,16 @@ var $pokemonRepository = (function () {     //IIFE starts here
         var $newContent = $newElement.text('');
         var $newContentTwo = $newElementButton.text(pokemon.name);
        
-       //add the modal body and title
+        //add the modal title
         var $modalTitle = $('#exampleModalLabel');
-        $modalTitle = $newElementButton.text(pokemon.name); 
-        var $modalBody = $('#modal-img');
-   
-        //add the necessary class
+        var $modalId = $('#modal_id'); 
+        $modalTitle.text($modalId.text()); 
+     
+
+        //add the necessary classes
         $newElement.addClass('list-group');
         $newElementButton.addClass('list-group-item list-group-item-action');
+        $newElementButton.attr('id', 'modal_id');
         $newElementButton.attr('type', 'button');
         $newElementButton.attr('data-toggle', 'modal');
         $newElementButton.attr('data-target', '#exampleModal');
