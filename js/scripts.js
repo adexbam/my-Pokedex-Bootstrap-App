@@ -6,6 +6,7 @@ var $pokemonRepository = (function () {     //IIFE starts here
       async function showDetails(item) {                              
         await $pokemonRepository.loadDetails(item).then(function () { 
         console.log(item); });
+        showModal(item);
       }
   
       function addListItem(pokemon) {
@@ -14,19 +15,7 @@ var $pokemonRepository = (function () {     //IIFE starts here
         var $newElementButton = $('<button></button>');
         var $newContent = $newElement.text('');
         var $newContentTwo = $newElementButton.text(pokemon.name);
-       
-        //add the modal title
-        var $modalTitle = $('#exampleModalLabel');
-        var $modalId = $('#modal_id'); 
-        $modalTitle.text($modalId.text()); 
 
-        //add the modal image
-        var $modalBody = $('.modal-body');
-        var $imageElement = $('<img>'); // creating img in modal content
-        $imageElement.addClass('modal-img');
-        $modalBody.append($imageElement);
-        $imageElement.attr("src", 'item.imageUrl');
-     
         //add the necessary classes
         $newElement.addClass('list-group');
         $newElementButton.addClass('list-group-item list-group-item-action');
@@ -41,14 +30,26 @@ var $pokemonRepository = (function () {     //IIFE starts here
         $boxlist.append($newElement);
         $newElement.append($newElementButton);
 
+        //show-details event listner function 
         $newElementButton.on('click', function (event) {
           showDetails(pokemon);
         });
       };
+
+      function showModal(item) {
+        var $modalTitle = $('.modal-title');   //creat element for name in modal content
+        var $modalId = $('#modal_id'); 
+        $modalTitle.text($modalId.text(item.name));
+
+        var $modalBody = $('.modal-body');
+        var $imageElement = $('<img>');         // creating img in modal content
+        $imageElement.addClass('modal-img');
+        $modalBody.append($imageElement);       //appending modal content to webpage
+        $imageElement.attr("src", item.imageUrl);
+      } 
   
-  
-    function add(pokemon) {
-      $repository.push(pokemon);
+      function add(pokemon) {
+        $repository.push(pokemon);
       }
     
       function getAll() {
