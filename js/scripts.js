@@ -8,7 +8,7 @@ var $pokemonRepository = (function () {     //IIFE starts here
         console.log(item); });
         showModal(item);
       }
-  
+
       function addListItem(pokemon) {
         var $boxlist = $('.pokobox');
         var $newElement = $('<div></div>');
