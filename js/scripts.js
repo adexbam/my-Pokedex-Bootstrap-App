@@ -36,6 +36,7 @@ var $pokemonRepository = (function () {     //IIFE starts here
         });
       };
 
+      //creat show modal function
       function showModal(item) {
         var $modalTitle = $('.modal-title');      //creat element for name in modal content
         var $modalTitleTwo = $('<h6></h6>');      // creating h6 in modal content
