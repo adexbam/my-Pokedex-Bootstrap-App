@@ -48,6 +48,14 @@ var $pokemonRepository = (function () {     //IIFE starts here
         $imageElement.addClass('modal-img');
         $modalBody.append($imageElement);       //appending modal content to webpage
         $imageElement.attr("src", item.imageUrl);
+
+        var $closeButton = $('button');
+        $closeButton.each(function(item){
+        $(this).on('click', function(event){
+        $imageElement.remove();
+        $modalTitleTwo.remove();
+        })
+        })
       } 
   
       function add(pokemon) {
