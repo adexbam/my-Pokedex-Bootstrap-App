@@ -4,9 +4,9 @@ var $pokemonRepository =  (function () {     //IIFE starts here
     var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150'; // URL for the pokemon API
   
       async function showDetails(item)  {                              
-        await $pokemonRepository.loadDetails(item).then(function () { 
+        await $pokemonRepository.loadDetails(item).then(function () {
+          showModal(item); 
         });
-        showModal(item);
       }
       
       function addListItem(pokemon) {
