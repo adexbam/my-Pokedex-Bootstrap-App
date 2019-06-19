@@ -1,14 +1,14 @@
-var $pokemonRepository = (function () {     //IIFE starts here
+var $pokemonRepository =  (function () {     //IIFE starts here
 
     var $repository = [];  // empty array
     var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150'; // URL for the pokemon API
   
-      async function showDetails(item) {                              
+      async function showDetails(item)  {                              
         await $pokemonRepository.loadDetails(item).then(function () { 
-        console.log(item); });
+        });
         showModal(item);
       }
-
+      
       function addListItem(pokemon) {
         var $boxlist = $('.pokobox');
         var $newElement = $('<div></div>');
@@ -31,10 +31,10 @@ var $pokemonRepository = (function () {     //IIFE starts here
         $newElement.append($newElementButton);
 
         //show-details event listner function 
-        $newElementButton.on('click', function (event) {
+        $newElementButton.on('click', function () {
           showDetails(pokemon);
         });
-      };
+      }
 
       //creat show modal function
       function showModal(item) {
@@ -47,11 +47,11 @@ var $pokemonRepository = (function () {     //IIFE starts here
         var $imageElement = $('<img>');         // creating img in modal content
         $imageElement.addClass('modal-img');
         $modalBody.append($imageElement);       //appending modal content to webpage
-        $imageElement.attr("src", item.imageUrl);
+        $imageElement.attr('src', item.imageUrl);
 
         var $closeButton = $('button');
-        $closeButton.each(function(item){
-        $(this).on('click', function(event){
+        $closeButton.each(function(){
+        $(this).on('click', function(){
         $imageElement.remove();
         $modalTitleTwo.remove();
         })
